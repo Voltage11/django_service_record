@@ -9,7 +9,7 @@ class LoginView(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            return redirect('home')  # замените 'home' на ваш URL
+            return redirect('core:index')  # замените 'home' на ваш URL
         form = self.form_class()
         return render(request, self.template_name, {'form': form})
 
@@ -18,7 +18,7 @@ class LoginView(View):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')  # замените 'home' на ваш URL
+            return redirect('core:index')  # замените 'home' на ваш URL
         return render(request, self.template_name, {'form': form})
 
 def logout_view(request):

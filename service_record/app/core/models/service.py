@@ -1,6 +1,10 @@
 from django.db import models
 
+from app.users.models import CustomUser
+
+
 class Service(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     name = models.CharField('Наименование', max_length=150)
     comment = models.TextField('Комментарий', blank=True, null=True)
     is_active = models.BooleanField('Активен', default=True)

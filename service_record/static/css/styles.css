@@ -1,0 +1,78 @@
+:root {
+    --bg-color-dark: #121212;
+    --bg-color-light: #f5f5f5;
+    --text-color: #ffffff;
+    --text-color-hover: #dadde0;
+}
+
+body {
+    margin: 0;
+}
+
+/*шапка*****************************/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    height: 40px;
+    width: 100%;
+    background-color: var(--bg-color-dark);
+}
+
+.header__left-block, .header__right-block {
+    display: flex;
+    align-items: center;
+}
+.header__left-block {
+    margin-left: 30px;
+}
+.header__right-block {
+    margin-right: 30px;
+}
+.logo{
+    margin-right: 20px;
+    border-right: solid 1px white;
+    padding-right: 20px;
+}
+.logo a{
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo a:hover{
+    color: var(--text-color-hover);
+}
+.logo__title{
+    font-size: 20px;
+    color: #e788e7;
+    font-weight: bold;
+    text-decoration: none;
+}
+.logo__subtitle{
+    font-size: 16px;
+    color: #eadde9;
+    text-decoration: none;
+    font-weight: bold;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.menu li {
+    list-style: none;
+}
+.menu li a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+}
+.menu li a:hover{
+    color: var(--text-color-hover);
+}
+/*конец шапки**********************/

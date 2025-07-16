@@ -1,6 +1,10 @@
 from django.db import models
 
+from app.users.models import CustomUser
+
+
 class Customer(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     name = models.CharField('Наименование', max_length=255)
     phone = models.CharField('Телефон', max_length=255, null=True, blank=True)
     email = models.CharField('Email', max_length=255, null=True, blank=True)

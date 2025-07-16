@@ -1,0 +1,28 @@
+<header>
+    <div class="header__left-block">
+        <div class="logo">
+            <a href="{% url 'core:index' %}">
+                <div class="logo__title">Сервис</div>
+                <div class="logo__subtitle">записи на услуги</div>
+            </a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="">Запись</a></li>
+            <li><a href="">Клиенты</a></li>
+            <li><a href="">Услуги</a></li>
+        </ul>
+
+    </div>
+    <div class="header__right-block">
+        <ul class="menu">
+            {% if not user.is_authenticated %}
+                <li><a href="/users/login">Войти</a></li>
+            {% else %}
+                <li><a href="">{{ user.username }}</a></li>
+                <li><a href="/users/logout">Выйти</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+</header>
