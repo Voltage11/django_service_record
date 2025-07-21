@@ -1,14 +1,17 @@
+import uuid
+
 from django.db import models
 
 from app.users.models import CustomUser
 
 
 class Service(models.Model):
+    id = models.UUIDField('ID', primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     name = models.CharField('Наименование', max_length=150)
     comment = models.TextField('Комментарий', blank=True, null=True)
     is_active = models.BooleanField('Активен', default=True)
-    price = models.DecimalField('Цена', max_digits=50, decimal_places=2)
+    price = models.DecimalField('Цена', max_digits=50, decimal_places=2, default=0)
     created_at = models.DateTimeField('Дата создания', auto_now_add=True)
     updated_at = models.DateTimeField('Дата изменения', auto_now=True)
 

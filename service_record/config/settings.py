@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
     'app.users',
     'app.core',
 ]
@@ -45,7 +47,8 @@ INSTALLED_APPS = [
 # Настройки аутентификации
 AUTHENTICATION_BACKENDS = [
     'app.users.backends.CustomAuthBackend',
-    'django.contrib.auth.backends.ModelBackend',  # резервный вариант
+    'django.contrib.auth.backends.ModelBackend',
+
 ]
 
 MIDDLEWARE = [
@@ -74,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'config.context_processors.get_menu_items',
             ],
         },
     },
@@ -144,4 +148,11 @@ STATIC_URL = '/static/'
 # Папки, где Django будет искать статические файлы
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # путь к вашей папке static
+]
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.ScryptPasswordHasher',
 ]

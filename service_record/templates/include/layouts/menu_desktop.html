@@ -1,0 +1,18 @@
+
+<div class="desktop-menu d-none d-md-flex">
+    {% for menu in menu_items %}
+        <div class="menu-item-group">
+            <div class="menu-item-group__title">
+                <a href="{{ menu.url }}">{{ menu.title }}</a>
+            </div>
+            {% if menu.sub_items %}
+                <div class="menu-item-group__actions">
+                    {% for sub_item in menu.sub_items %}
+                        <div class="menu-item-group__actions__action"><a
+                                href="{{ sub_item.url }}">{{ sub_item.title }}</a></div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

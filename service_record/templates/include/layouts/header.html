@@ -1,28 +1,26 @@
-<header>
-    <div class="header__left-block">
-        <div class="logo">
-            <a href="{% url 'core:index' %}">
-                <div class="logo__title">Сервис</div>
-                <div class="logo__subtitle">записи на услуги</div>
-            </a>
+<header class="dark-header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <!-- Основное меню -->
+            <div class="col-md-6">
+                <div class="menu">
+                    <!-- Десктопное меню -->
+                    {% include "include/layouts/menu_desktop.html" %}
+
+                    <!-- Мобильное меню -->
+                    {% include "include/layouts/menu_mobile.html" %}
+                </div>
+            </div>
+
+            <!-- Правая часть - две ссылки -->
+            <div class="col-md-6 d-flex justify-content-end">
+                {% if not user.is_authenticated %}
+                    <a href="/users/login" class="btn btn-link text-white me-2">Войти</a>
+                {% else %}
+                    <a href="" class="btn btn-link text-white">{{ user.first_name }}</a>
+                    <a href="/users/logout" class="btn btn-link text-white">Выйти</a>
+                {% endif %}
+            </div>
         </div>
-
-        <ul class="menu">
-            <li><a href="">Запись</a></li>
-            <li><a href="">Клиенты</a></li>
-            <li><a href="">Услуги</a></li>
-        </ul>
-
     </div>
-    <div class="header__right-block">
-        <ul class="menu">
-            {% if not user.is_authenticated %}
-                <li><a href="/users/login">Войти</a></li>
-            {% else %}
-                <li><a href="">{{ user.username }}</a></li>
-                <li><a href="/users/logout">Выйти</a></li>
-            {% endif %}
-        </ul>
-    </div>
-
 </header>

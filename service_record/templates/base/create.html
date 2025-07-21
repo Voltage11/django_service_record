@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ title }}</h2>
+        <hr>
+        <form method="post" >
+            <div class="panel-action">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <a href="{{ href_list }}" class="btn-href">Отмена</a>
+            </div>
+
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+    </div>
+{% endblock content %}

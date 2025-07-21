@@ -1,78 +1,179 @@
 :root {
-    --bg-color-dark: #121212;
+    --bg-color-dark: #282424;
     --bg-color-light: #f5f5f5;
     --text-color: #ffffff;
-    --text-color-hover: #dadde0;
+    --text-color-hover: #b3b4b6;
+    --href-color: #0a25b5;
+    --href-color-hover: #12131c;
 }
 
-body {
-    margin: 0;
-}
-
-/*шапка*****************************/
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    height: 40px;
-    width: 100%;
-    background-color: var(--bg-color-dark);
-}
-
-.header__left-block, .header__right-block {
-    display: flex;
-    align-items: center;
-}
-.header__left-block {
-    margin-left: 30px;
-}
-.header__right-block {
-    margin-right: 30px;
-}
-.logo{
-    margin-right: 20px;
-    border-right: solid 1px white;
-    padding-right: 20px;
-}
-.logo a{
+a {
+    color: var(--href-color);
     text-decoration: none;
-    color: var(--text-color);
+}
+a:hover {
+    color: var(--href-color-hover);
+    text-decoration: none;
+}
+/* Дополнительные стили */
+.dark-header {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+
+.main-content {
+    padding: 20px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+/* МЕНЮ*/
+.menu{
+    height: 100%;
+    display: flex;
+}
+.menu-item-group{
+    height: 100%;
+    /*width: 200px;*/
+    border-right: 1px solid white;
     display: flex;
     flex-direction: column;
+    align-content: center;
     align-items: center;
+    padding: 0 25px 0 20px;
 }
-.logo a:hover{
+.menu-item-group__title{
+    color: white;
+}
+.menu-item-group__title a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.menu-item-group__title a:hover{
     color: var(--text-color-hover);
 }
-.logo__title{
-    font-size: 20px;
-    color: #e788e7;
-    font-weight: bold;
-    text-decoration: none;
+.menu-item-group__actions {
+    display: flex;
+    gap: 20px;
 }
-.logo__subtitle{
-    font-size: 16px;
-    color: #eadde9;
-    text-decoration: none;
-    font-weight: bold;
+
+.menu-item-group__actions__action{
+    color: white;
 }
-.menu{
+.menu-item-group__actions__action a{
+    text-decoration: none;
+    color: white;
+}
+.menu-item-group__actions__action a:hover{
+    color: var(--text-color-hover);
+}
+/*МЕНЮ конец*/
+/* Мобильное меню */
+.mobile-menu {
+    width: 100%;
+}
+
+.mobile-menu .navbar-toggler {
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    padding: 5px 10px;
+}
+
+.mobile-menu .navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.mobile-menu .menu-item-group {
+    border-right: none;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.mobile-menu .menu-item-group__title {
+    padding: 5px 0;
+}
+
+.mobile-menu .menu-item-group__actions {
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 15px;
+}
+
+/* Десктопное меню */
+.desktop-menu {
+    width: 100%;
+}
+.img-icon, .img-icon-link{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px
+}
+.img-icon-link{
+    cursor: pointer;
+}
+.panel-action{
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--bg-color-dark);
 }
-.menu li {
-    list-style: none;
+.form-search{
+    display: flex;
+    gap: 10px;
 }
-.menu li a{
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 18px;
-    font-weight: bold;
+.message{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: none;
 }
-.menu li a:hover{
-    color: var(--text-color-hover);
+.message-info{
+    background-color: #eeedec;
+    color: black;
+    display: block;
 }
-/*конец шапки**********************/
+.message-error{
+    background-color: #ffb3b3;
+    color: black;
+    display: block;
+}
+
+.align-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Адаптация для разных экранов */
+@media (max-width: 768px) {
+    .dark-header {
+        padding: 5px 0;
+    }
+
+    .menu-item-group {
+        padding: 0 15px;
+    }
+
+    .menu-item-group__actions {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-6.d-flex.justify-content-end {
+        justify-content: flex-start !important;
+        margin-top: 10px;
+    }
+
+    .btn-link {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+}

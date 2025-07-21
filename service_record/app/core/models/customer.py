@@ -1,9 +1,12 @@
+import uuid
+
 from django.db import models
 
 from app.users.models import CustomUser
 
 
 class Customer(models.Model):
+    id = models.UUIDField('ID', primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     name = models.CharField('Наименование', max_length=255)
     phone = models.CharField('Телефон', max_length=255, null=True, blank=True)
